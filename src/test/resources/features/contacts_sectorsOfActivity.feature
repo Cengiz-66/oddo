@@ -57,5 +57,9 @@ Feature: Sectors of Activity
     When the user clicks Last modified on
     And  click add button
     Then the Last modified on is displayed under fields to export section
-    When the user clicks the export to file button
+    When the user clicks the export to file buttons
     Then the file is downloaded to the computer
+
+
+
+
