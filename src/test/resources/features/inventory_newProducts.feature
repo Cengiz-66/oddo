@@ -1,48 +1,22 @@
-Feature: The user can create a new product
-	
+Feature: User should be able to add new contact title under configuration
+
 	Background:
-	
-		Given the user is logged in
-		And the user navigate to "Inventory" "Products"
-		And the user clicks "Create" button
+		Given the user is on the login page
+		When the user enter the eventscrmmanager information
+		And the user navigate to "contacts"
 
-	Scenario: new product creation
-		When  the user enters the following information 
-			|Name              |Yucel     |
-			|Product Type      | Service  |
-			|Internal Reference| Tirana   |
-			|Sales Price       | 3.00     |
-			|Cost              | 15.00    |
-		And the user clicks "Save" button
-		Then title should contain "Yucel"
+	Scenario: User prepares new contact title
+		When the user clicks Contact Titles submenu
+		And the user clicks create button
+		And the user enters following information
+			| Title        | Doctor |
+			| Abbreviation | Mr.    |
+		And the user clicks Save button
+		Then the user should see the "Doctor" as title
 
-	Scenario: new product creation- negative
-		When  the user enters the following information 
-			|Name              |Yucel     |
-			|Product Type      | Service  |
-			|Internal Reference| Tirana   |
-			|Sales Price       | sales    |
-			|Cost              | 15.00    |
-		And the user clicks "Save" button
-		Then the user should get "The following fields are invalid:" warning message
-
-	Scenario: new product creation- negative
-		When  the user enters the following information 
-			|Name              |Yucel     |
-			|Product Type      | Service  |
-			|Internal Reference| Tirana   |
-			|Sales Price       | 3.00     |
-			|Cost              | cost     |
-		And the user clicks "Save" button
-		Then the user should get "xxxxxx" warning message
-
-	Scenario Outline: new product click functions
-		When the user clicks "<checkBox>" check box
-		Then the user should see "<options>"	
-
-	 Examples:
-	 	|checkBox        |options  |
-	 	|Can be Sold     |Sales    |
-	 	|Can be Purchased|Purchase |
-	 	|Can be Expensed |Inventory|	
+	Scenario: user not enter the title
+		Given the user clicks Contact Titles submenu
+		When the user clicks create button
+		And  the user leaves the title box empty
+		Then the user get "The following fields are invalid: Title" message
 
