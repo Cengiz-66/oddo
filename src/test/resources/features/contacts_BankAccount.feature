@@ -1,7 +1,7 @@
 Feature: the user can create a new bank account
 
 	# crmManager - invUser - invManager
-  @wip
+
   Scenario: navigation test
     Given the user is logged in as "crmManager"
     And the user navigate to "Contacts" and "Bank Accounts"
