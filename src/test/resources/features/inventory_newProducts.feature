@@ -1,3 +1,4 @@
+
 Feature: User should be able to add new contact title under configuration
 
 	Background:
@@ -19,4 +20,5 @@ Feature: User should be able to add new contact title under configuration
 		When the user clicks create button
 		And  the user leaves the title box empty
 		Then the user get "The following fields are invalid: Title" message
+
 
