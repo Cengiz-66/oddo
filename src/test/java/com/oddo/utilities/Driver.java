@@ -38,7 +38,7 @@ public class Driver {
                     driver = new FirefoxDriver();
                     break;
                 case "firefox-headless":
-                    WebDriverManager.firefoxdriver().setup();
+                   WebDriverManager.firefoxdriver().setup();
                     driver = new FirefoxDriver(new FirefoxOptions().setHeadless(true));
                     break;
                 case "ie":
