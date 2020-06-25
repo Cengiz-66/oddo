@@ -1,12 +1,12 @@
 
-
+@wip
 Feature: The user can create a new contact
 
   Background:
     Given the user logged in
     And the user navigate to "Contacts"
     And the user click "Create" button
-@wip
+
   Scenario: default "Individual" radio button selected
     Then the user can see individual radio button selected
     And company drop down is visible
