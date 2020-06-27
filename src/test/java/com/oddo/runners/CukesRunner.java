@@ -20,7 +20,7 @@ import org.junit.runner.RunWith;
         //this is the create the methods of missing stories
         //in normal test run, switch it to false
 
-        tags = "@wip"
+        tags = "@login"
         //this is to run certain scenarios tagged by the given tag.
         // and and or operator can be used to give multiple.
 )
