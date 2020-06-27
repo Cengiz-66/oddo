@@ -2,9 +2,8 @@ Feature: The user should be able to add new country under localization
 
   Background:
     Given the user is logged in as "crmManager"
-    And the user navigate to "Contacts" and "Localization"
-
-  @wip
+    And the user navigate to "Contacts" and "Countries"
+@wip
   Scenario: User prepares new country
     When the user clicks "Countries" submenu
     And the user clicks "Create" button

@@ -18,7 +18,7 @@ public class ContactsPage extends BasePage {
     @FindBy(xpath = "//div[@name=\"parent_id\"]//input[starts-with(@id,'o_field_input_')]")
     public WebElement companyDropDown;
 
-    @FindBy(xpath = "//input[@name='name']")
+    @FindBy(xpath = "//*[@name='name']")
     public WebElement nameInputBox;
 
     @FindBy(xpath = "//input[@name='street']")
@@ -42,12 +42,22 @@ public class ContactsPage extends BasePage {
     @FindBy(xpath = "//input[@name='email']")
     public WebElement emailInputBox;
 
-//this method select a country from address drop down
+    @FindBy(xpath = "//*[contains(text(),'ABC Company')]")
+    public WebElement savedContact27;
+
+    //this method select a country from address drop down
     public void selectCountry(String country) {
-        String c="//li[.='"+country+"']";
-        WebElement countrySelect= Driver.get().findElement(By.xpath(c));
-        BrowserUtils.waitForVisibility(countrySelect,5);
+        String c = "//li[.='" + country + "']";
+        WebElement countrySelect = Driver.get().findElement(By.xpath(c));
+        BrowserUtils.waitForVisibility(countrySelect, 5);
         new Actions(Driver.get()).moveToElement(countrySelect).click().perform();
+    }
+
+//this method returns WebElement which related given contact name
+    public WebElement selectContact(String contactName) {
+        String savedContact= "//*[contains(text(),'"+contactName+"')]";
+
+        return Driver.get().findElement(By.xpath(savedContact));
     }
 
 }

@@ -10,6 +10,8 @@ import org.junit.runner.RunWith;
                 "html:target/default-html-reports",
                 "rerun:target/rerun.txt"},
 
+        strict = true,
+
         features = "src/test/resources/features",
         //this is the feature file path
 
