@@ -11,7 +11,7 @@ import org.junit.Assert;
 
 public class Login_stepDefs {
     @Given("the user is logged in")
-    public void the_user_is_logged_in() {
+    public void the_user_is_logged() {
         Driver.get().manage().window().maximize();
         String url = ConfigurationReader.get("url");
         Driver.get().get(url);
