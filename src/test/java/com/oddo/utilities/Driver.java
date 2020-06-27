@@ -26,19 +26,20 @@ public class Driver {
             String browser = ConfigurationReader.get("browser");
             switch (browser) {
                 case "chrome":
-                    WebDriverManager.chromedriver().setup();
+                    System.setProperty("webdriver.chrome.driver","C:\\Program Files (x86)\\Google\\Chrome\\Application\\83.0.4103.116\\chromedriver.exe");
                     driver = new ChromeDriver();
                     break;
                 case "chrome-headless":
-                    WebDriverManager.chromedriver().setup();
+                    System.setProperty("webdriver.chrome.driver","C:\\Program Files (x86)\\Google\\Chrome\\Application\\83.0.4103.116\\chromedriver.exe");
                     driver = new ChromeDriver(new ChromeOptions().setHeadless(true));
                     break;
                 case "firefox":
-                    WebDriverManager.firefoxdriver().setup();
+                    System.setProperty("webdriver.gecko.driver","C:\\Program Files\\Mozilla Firefox\\browser\\geckodriver.exe");
+                    //  System.setProperty("webdriver.gecko.driver","D:\\aa\\drivers\\geckodriver.exe");
                     driver = new FirefoxDriver();
                     break;
                 case "firefox-headless":
-                   WebDriverManager.firefoxdriver().setup();
+                    System.setProperty("webdriver.gecko.driver","C:\\Program Files\\Mozilla Firefox\\browser\\geckodriver.exe");
                     driver = new FirefoxDriver(new FirefoxOptions().setHeadless(true));
                     break;
                 case "ie":
