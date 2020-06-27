@@ -1,7 +1,8 @@
 @login
 Feature: Users should be able to login
 
-  Background: the user is on the login page
+  Background:
+  Given the user is logged in
 
     # crmManager - invUser - invManager
   Scenario: Login as eventscrmmanager
