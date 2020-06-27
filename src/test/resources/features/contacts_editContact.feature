@@ -9,8 +9,8 @@ Feature: modify feature
     Then user should see all information to that contact
 
   Scenario: the user modify contacts information
-    When the user click any contact
-    And the user click edit button
+    When the user clicks any contact
+    And the user click "edit" button
     And the user enter following information
       | Name    | Kuscubasi Company |
       | Street  | 521               |
@@ -25,7 +25,7 @@ Feature: modify feature
 
   Scenario Outline: user should not enter invalid data
     When the user click any contact
-    And the user click edit button
+    And the user click "edit" button
     And the user enter following"<mobile>" "<phone>"
     And the user click "Save" button
     Then the user see alert message

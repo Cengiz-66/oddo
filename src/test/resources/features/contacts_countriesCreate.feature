@@ -3,7 +3,7 @@ Feature: The user should be able to add new country under localization
 
   Background:
     Given the user is logged in
-    And the user navigate to "contacts" "Localization"
+    And the user navigate to "contacts" and "Localization"
 
     Scenario: User prepares new country
       When the user clicks "Countries" submenu
