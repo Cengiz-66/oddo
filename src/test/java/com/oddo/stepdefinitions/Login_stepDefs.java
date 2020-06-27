@@ -20,7 +20,6 @@ public class Login_stepDefs {
 
     @When("the user enter the {string} information")
     public void the_user_enter_the_information(String userType) {
-        the_user_is_on_the_login_page();
         String crm_username = ConfigurationReader.get(userType+"_username");
         String crm_password = ConfigurationReader.get(userType+"_password");
         LoginPage loginPage = new LoginPage();
