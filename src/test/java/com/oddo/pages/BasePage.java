@@ -171,6 +171,20 @@ public abstract class BasePage {
         }
     }
 
+    //to navigate with only leftMenu
+    public void navigateInLeftModule(String leftMenu) {
+
+        try {
+            BrowserUtils.waitForClickablility(By.linkText(leftMenu), 5);
+            WebElement tabElement = Driver.get().findElement(By.linkText(leftMenu));
+            new Actions(Driver.get()).moveToElement(tabElement).pause(200).doubleClick(tabElement).build().perform();
+            waitUntilTitleToContain(leftMenu);
+        } catch (Exception e) {
+            BrowserUtils.clickWithWait(By.linkText(leftMenu), 5);
+            waitUntilTitleToContain(leftMenu);
+        }
+    }
+
     //to click common buttons
     public void clickButtonName(String buttonName){
         String xpath = "//button[contains(text(),'"+buttonName+"')]";

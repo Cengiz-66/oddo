@@ -11,8 +11,8 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.Assert;
 
 public class Login_stepDefs {
-    @Given("the user is on the login page")
-    public void the_user_is_on_the_login_page() {
+    @Given("the user is logged in")
+    public void the_user_is_logged() {
         Driver.get().manage().window().maximize();
         String url = ConfigurationReader.get("url");
         Driver.get().get(url);

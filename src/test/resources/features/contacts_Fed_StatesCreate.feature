@@ -2,7 +2,7 @@ Feature: the user should be able to add create Fed.State
 
   Background:
     Given the user is logged in
-    And the user navigate to "contacts" "Localization"
+    And the user navigate to "contacts" and "Localization"
 
 
   Scenario:the user prepares new Fed.State in an existing country

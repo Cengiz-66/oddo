@@ -4,8 +4,8 @@ Feature: The user can create a new product
   Background:
 
     Given the user logged in
-    And the user navigate to "Inventory" "Products"
-    And the user clicked "Create" button
+    And the user navigate to "Inventory" and "Products"
+    And the user clicks "Create" button
 
   Scenario: new product creation
     When  the user enters the following information
