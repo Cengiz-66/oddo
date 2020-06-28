@@ -42,6 +42,8 @@ public class ContactsPage extends BasePage {
     @FindBy(xpath = "//input[@name='email']")
     public WebElement emailInputBox;
 
+
+
 //this method select a country from address drop down
     public void selectCountry(String country) {
         String c="//li[.='"+country+"']";
