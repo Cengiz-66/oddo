@@ -2,7 +2,7 @@ Feature: the user should be able to manage country informations
 
   Background:
     Given the user is logged in
-    And the user navigate to "contacts" "Localization"
+    And the user navigate to "contacts" and "Localization"
 
     Scenario: User searches country
       When the user clicks "Countries" submenu

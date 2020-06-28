@@ -4,7 +4,7 @@ Feature: User should be able to manage contact tags
 
   Background:
     Given the user is logged in
-    And the user navigates to "Contacts" "Contact Tags"
+    And the user navigate to "Contacts" and "Contact Tags"
     And the user clicks "Contact Tags" submenu
 
   Scenario: User creates new "contacts tag"
@@ -17,7 +17,7 @@ Feature: User should be able to manage contact tags
 
   Scenario: the user edits existing  contact tag
     When the user clicks on a tag from the list
-    And the user clicks on "edit" button
+    And the user clicks "edit" button
     And the user enters "tag name"
     And the user chooses "parent category" from the dropdown
     And the user clicks active checkbox
@@ -29,8 +29,8 @@ Feature: User should be able to manage contact tags
     And user chooses "Export" from "Action" options
     And user selects "necessary fields" from the list
     #  coklu secim ctrl tusuna basili tutarak olur mu?
-    And user clicks "add" button
-    And user clicks "Export to File" button
+    And the user clicks "add" button
+    And the user clicks "Export to File" button
     Then user
 
   Scenario: user imports country/countries from a file

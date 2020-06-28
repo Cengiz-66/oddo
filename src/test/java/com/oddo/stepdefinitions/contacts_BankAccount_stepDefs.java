@@ -3,7 +3,6 @@ package com.oddo.stepdefinitions;
 import com.oddo.pages.BasePage;
 import com.oddo.pages.Contact_BankAccountPage;
 import com.oddo.pages.LoginPage;
-import com.oddo.utilities.BrowserUtils;
 import com.oddo.utilities.Driver;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -29,7 +28,7 @@ public class contacts_BankAccount_stepDefs extends BasePage {
     public void clicks_to_bank_accounts_link() {
         new Contact_BankAccountPage().secondBankAccountLink.click();
         new Contact_BankAccountPage().waitUntilTitleToContain("Account");
-        System.out.println(new Contact_BankAccountPage().secondaryTitle.getText());
+        System.out.println(new Contact_BankAccountPage().getPageSubTitle());
 
     }
 
@@ -37,7 +36,7 @@ public class contacts_BankAccount_stepDefs extends BasePage {
     public void the_user_clicks_button(String buttonName) {
         new Contact_BankAccountPage().clickButtonName(buttonName);
         new Contact_BankAccountPage().waitUntilTitleToContain("New");
-        System.out.println(new Contact_BankAccountPage().secondaryTitle.getText());
+        System.out.println(new Contact_BankAccountPage().getPageSubTitle());
     }
 
 

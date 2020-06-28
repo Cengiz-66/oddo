@@ -1,13 +1,13 @@
 Feature: the user can create a new bank account
 
 	# crmManager - invUser - invManager
-  @wip
+
   Scenario: navigation test
-	  Given the user is logged in as "crmManager"
-	  And the user navigate to "Contacts" and "Bank Accounts"
-	  And clicks to bank accounts link
-	  And the user clicks "Create" button
-	  Then title should contain "New"
+    Given the user is logged in as "crmManager"
+    And the user navigate to "Contacts" and "Bank Accounts"
+    And clicks to bank accounts link
+    And the user clicks "Create" button
+    Then title should contain "New"
 
 
   Scenario: new bank account creation
