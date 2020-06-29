@@ -15,6 +15,8 @@ public class Login_stepDefs {
     public void the_user_is_logged() {
         Driver.get().manage().window().maximize();
         String url = ConfigurationReader.get("url");
+
+      
         Driver.get().get(url);
 
     }

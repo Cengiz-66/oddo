@@ -42,10 +42,13 @@ public class ContactsPage extends BasePage {
     @FindBy(xpath = "//input[@name='email']")
     public WebElement emailInputBox;
 
+
+
+
+//this method select a country from address drop down
     @FindBy(xpath = "//*[contains(text(),'ABC Company')]")
     public WebElement savedContact27;
 
-    //this method select a country from address drop down
     public void selectCountry(String country) {
         String c = "//li[.='" + country + "']";
         WebElement countrySelect = Driver.get().findElement(By.xpath(c));
