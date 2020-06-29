@@ -15,6 +15,10 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public abstract class BasePage {
 
+    public BasePage() {
+        PageFactory.initElements(Driver.get(), this);
+    }
+
     @FindBy(xpath = "//*[.='Loading']")
     @CacheLookup
     public WebElement loadingBar;
@@ -25,8 +29,9 @@ public abstract class BasePage {
     @FindBy(css = ".blockUI.blockOverlay")
     public WebElement loadingOverlay;
 
-    @FindBy(css = "ol>li[class='active']")
+    @FindBy(css = "ol[class='breadcrumb'] ") //-->"ol>li[class='active']"
     public WebElement pageSubTitle;
+
 
     @FindBy(css = "[class='oe_topbar_name']")
     public WebElement userName;
@@ -49,9 +54,6 @@ public abstract class BasePage {
     @FindBy(xpath = "(//span[contains(text(),'Products')])[3]")
     public WebElement products;
 
-    public BasePage() {
-        PageFactory.initElements(Driver.get(), this);
-    }
 
     /**
      * @return page name, for example: Contacts
@@ -166,6 +168,20 @@ public abstract class BasePage {
         } catch (Exception e) {
             BrowserUtils.clickWithWait(By.linkText(upperMenu), 5);
             waitUntilTitleToContain(upperMenu);
+        }
+    }
+
+    //to navigate with only leftMenu
+    public void navigateInLeftModule(String leftMenu) {
+
+        try {
+            BrowserUtils.waitForClickablility(By.linkText(leftMenu), 5);
+            WebElement tabElement = Driver.get().findElement(By.linkText(leftMenu));
+            new Actions(Driver.get()).moveToElement(tabElement).pause(200).doubleClick(tabElement).build().perform();
+            waitUntilTitleToContain(leftMenu);
+        } catch (Exception e) {
+            BrowserUtils.clickWithWait(By.linkText(leftMenu), 5);
+            waitUntilTitleToContain(leftMenu);
         }
     }
 

@@ -22,7 +22,7 @@ public class contacts_newContactStepDefs {
 
     @Given("the user navigate to {string}")
     public void the_user_navigate_to(String upperMenu) {
-        new ContactsPage().navigateToModule(upperMenu);
+        new ContactsPage().navigateToModule(upperMenu,"Banks");
     }
 
     @Given("the user click {string} button")

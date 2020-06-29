@@ -2,7 +2,7 @@
 Feature: Users should be able to login
 
   Background:
-  Given the user is logged in
+  Given the user is logged in as "crmManager"
 
     # crmManager - invUser - invManager
   Scenario: Login as eventscrmmanager
