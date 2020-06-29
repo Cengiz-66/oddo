@@ -177,6 +177,7 @@ public abstract class BasePage {
         try {
             BrowserUtils.waitForClickablility(By.linkText(leftMenu), 5);
             WebElement tabElement = Driver.get().findElement(By.linkText(leftMenu));
+            BrowserUtils.waitForClickablility(tabElement,3);
             new Actions(Driver.get()).moveToElement(tabElement).pause(200).doubleClick(tabElement).build().perform();
             waitUntilTitleToContain(leftMenu);
         } catch (Exception e) {
@@ -189,10 +190,18 @@ public abstract class BasePage {
     public void clickButtonName(String buttonName){
         String xpath = "//button[contains(text(),'"+buttonName+"')]";
         WebElement button = Driver.get().findElement(By.xpath(xpath));
+        BrowserUtils.waitForClickablility(button,3);
         new Actions(Driver.get()).moveToElement(button).pause(200).click().perform();
         BrowserUtils.waitFor(2);
     }
 
+    //to click common buttons
+    public void clickForConfirmationButton(String buttonName){
+        String xpath = "//button[.='"+buttonName+"']";
+        WebElement button = Driver.get().findElement(By.xpath(xpath));
+        new Actions(Driver.get()).moveToElement(button).pause(200).click().perform();
+        BrowserUtils.waitFor(2);
+    }
     // this is to return select object of a select element
     public Select returnSelectObject(WebElement selectDropDown) {
 
