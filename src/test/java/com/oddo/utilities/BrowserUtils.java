@@ -7,6 +7,10 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.awt.*;
+import java.awt.datatransfer.StringSelection;
+import java.awt.event.KeyEvent;
+import java.io.File;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -19,6 +23,7 @@ public class BrowserUtils {
 
     /**
      * Switches to new window by the exact title. Returns to original window if target title not found
+     *
      * @param targetTitle
      */
     public static void switchToWindow(String targetTitle) {
@@ -275,6 +280,7 @@ public class BrowserUtils {
 
     /**
      * Highlighs an element by changing its background and border color
+     *
      * @param element
      */
     public static void highlight(WebElement element) {
@@ -370,8 +376,9 @@ public class BrowserUtils {
     }
 
     /**
-     *  checks that an element is present on the DOM of a page. This does not
-     *    * necessarily mean that the element is visible.
+     * checks that an element is present on the DOM of a page. This does not
+     * * necessarily mean that the element is visible.
+     *
      * @param by
      * @param time
      */
@@ -381,21 +388,23 @@ public class BrowserUtils {
 
 
     /**
-     *  this method returns a List of strings with not distinct elements
-     *    to a lsit of distinct string elements. - written by Celil
+     * this method returns a List of strings with not distinct elements
+     * to a lsit of distinct string elements. - written by Celil
+     *
      * @param listWithDuplicates
      */
-    public static List<String> returnDistinctEntriesInList(List<String> listWithDuplicates){
+    public static List<String> returnDistinctEntriesInList(List<String> listWithDuplicates) {
         return listWithDuplicates.stream().distinct().collect(Collectors.toList());
     }
 
     /**
-     *  this method returns a string as a Date
-     *    with a given pattern - written by Celil
+     * this method returns a string as a Date
+     * with a given pattern - written by Celil
+     *
      * @param datePattern
      * @param dateAsString
      */
-    public static Date convertStringToDate(String datePattern, String dateAsString){
+    public static Date convertStringToDate(String datePattern, String dateAsString) {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat(datePattern);
         Date date = null;
         try {
@@ -404,6 +413,103 @@ public class BrowserUtils {
             e.printStackTrace();
         }
         return date;
+    }
+
+
+    /**
+     * this method uploads a given file by using native upload windows
+     * Robot class is used - written by Celil
+     *
+     * @param filePath
+     */
+
+    public static void uploadFileByRobot(String filePath) {
+
+        String os_name = System.getProperty("os.name");
+
+        Robot robot = null;
+        try {
+            robot = new Robot();
+        } catch (AWTException e) {
+            e.printStackTrace();
+        }
+
+        StringSelection str = new StringSelection(filePath);
+        Toolkit.getDefaultToolkit().getSystemClipboard().setContents(str, null);
+
+        switch (os_name) {
+
+            case "Mac OS X":
+
+                BrowserUtils.waitFor(1);
+                robot.keyPress(KeyEvent.VK_META);
+                robot.keyPress(KeyEvent.VK_TAB);
+                robot.keyRelease(KeyEvent.VK_META);
+                robot.keyRelease(KeyEvent.VK_TAB);
+                robot.delay(500);
+
+                //Open Goto window
+                robot.keyPress(KeyEvent.VK_META);
+                robot.keyPress(KeyEvent.VK_SHIFT);
+                robot.keyPress(KeyEvent.VK_G);
+                robot.keyRelease(KeyEvent.VK_META);
+                robot.keyRelease(KeyEvent.VK_SHIFT);
+                robot.keyRelease(KeyEvent.VK_G);
+
+                //Paste the clipboard value
+                robot.delay(500);
+                robot.keyPress(KeyEvent.VK_META);
+                robot.keyPress(KeyEvent.VK_V);
+                robot.keyRelease(KeyEvent.VK_META);
+                robot.keyRelease(KeyEvent.VK_V);
+                robot.delay(500);
+                //Press Enter key to close the Goto window and Upload window
+                robot.keyPress(KeyEvent.VK_ENTER);
+                robot.keyRelease(KeyEvent.VK_ENTER);
+                robot.delay(500);
+                robot.keyPress(KeyEvent.VK_ENTER);
+                robot.keyRelease(KeyEvent.VK_ENTER);
+                break;
+
+            //
+            case "windows":
+                robot.keyPress(KeyEvent.VK_CONTROL);
+                robot.keyPress(KeyEvent.VK_V);
+                robot.keyRelease(KeyEvent.VK_V);
+                robot.keyRelease(KeyEvent.VK_CONTROL);
+                robot.delay(500);
+                robot.keyPress(KeyEvent.VK_ENTER);
+                robot.keyRelease(KeyEvent.VK_ENTER);
+                break;
+            default:
+                System.out.println("not a suitable OS");
+        }
+
+    }
+
+
+    /**
+     * Checks whether a given filename present in the
+     * given folder.  if you want to delete file after verifying its
+     * presence use deleteOnexit=true - - By celil.
+     *
+     * @param downloadPath
+     * @param fileName
+     */
+
+    public static boolean isFileDownloaded(String downloadPath, String fileName, Boolean deleteOnExit) {
+        File dir = new File(downloadPath);
+        File[] dirContents = dir.listFiles();
+
+        for (int i = 0; i < dirContents.length; i++) {
+            if (dirContents[i].getName().equals(fileName)) {
+                if (deleteOnExit) {
+                    dirContents[i].delete();
+                }
+                return true;
+            }
+        }
+        return false;
     }
 
 
