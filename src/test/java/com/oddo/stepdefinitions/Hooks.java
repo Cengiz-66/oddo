@@ -30,7 +30,7 @@ public class Hooks {
         }
 
 
-        //Driver.closeDriver();
+        Driver.closeDriver();
     }
 
     @Before("@db")
