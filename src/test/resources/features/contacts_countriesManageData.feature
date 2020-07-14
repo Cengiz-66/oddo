@@ -1,3 +1,4 @@
+@smoke
 Feature: the user should be able to manage country informations
 
   Background:

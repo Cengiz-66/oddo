@@ -1,4 +1,4 @@
-@wip
+@wip @smoke
 Feature: The user should be able to add new country under localization
 
   Background:
