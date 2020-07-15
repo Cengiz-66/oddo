@@ -82,7 +82,7 @@
                                 <param>**/cucumber*.json</param>
                             </jsonFiles>
                             <classificationFiles>
-                                <!-- supports wildcard or name pattern -->
+                                <!-- supports wildcard or name pattern . This part provides report in Jenkins-->
                                 <param>sample.properties</param>
                                 <param>other.properties</param>
                             </classificationFiles>
