@@ -81,6 +81,12 @@
                             <jsonFiles>
                                 <param>**/cucumber*.json</param>
                             </jsonFiles>
+                            <classificationFiles>
+                                <!-- supports wildcard or name pattern -->
+                                <param>sample.properties</param>
+                                <param>other.properties</param>
+                            </classificationFiles>
+                            <!--<parallelTesting>false</parallelTesting>-->
                         </configuration>
                     </execution>
                 </executions>

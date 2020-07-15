@@ -39,7 +39,7 @@ public class ContactsTitleEnder {
         new ContactsTitlePage().createTitle.click();
     }
 
-
+/*
     @When("the user enters following information")
     public void the_user_enters_following_information(Map<String, String> table) {
 
@@ -53,7 +53,7 @@ public class ContactsTitleEnder {
 
 
 
-    }
+    }*/
 
     @When("the user clicks Save button")
     public void the_user_clicks_Save_button() {

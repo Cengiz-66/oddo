@@ -1,4 +1,4 @@
-@wip @smoke
+@wip
 Feature: The user should be able to add new country under localization
 
   Background:
@@ -21,7 +21,7 @@ Feature: The user should be able to add new country under localization
       | Country Code         | Mg          |
       | Country Calling Code | 21          |
       | Vat Label            | KDV         |
-
+  @smoke
   Scenario: User prepares new country contact but discards
     When the user clicks "Countries" submenu
     And the user clicks "Create" button
@@ -35,7 +35,7 @@ Feature: The user should be able to add new country under localization
     And the user clicks "Ok" button in pop up window
     Then the user comes back to country-create page
 
-
+  @smoke
   Scenario: User enter invalid country code
     When the user clicks "Countries" submenu
     And the user clicks "Create" button
@@ -47,7 +47,7 @@ Feature: The user should be able to add new country under localization
     Then the user clicks "Save" button
     Then the user should get "The code of the country must be unique !" warning message
 
-
+  @smoke
   Scenario: User enter invalid country calling code
     When the user clicks "Countries" submenu
     And the user clicks "Create" button
@@ -58,7 +58,7 @@ Feature: The user should be able to add new country under localization
       | Vat Label            | KDV        |
     Then the user clicks "Save" button
     Then the user should get "Country Calling Code" alert
-
+  @smoke
   Scenario: User enter no country name
     When the user clicks "Countries" submenu
     And the user clicks "Create" button
