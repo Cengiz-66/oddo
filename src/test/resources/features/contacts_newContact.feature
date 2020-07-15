@@ -6,11 +6,11 @@ Feature: The user can create a new contact
     Given the user logged in
     And the user navigate to "Contacts"
     And the user click "Create" button
-
+@cc
   Scenario: default "Individual" radio button selected
     Then the user can see individual radio button selected
     And company drop down is visible
-
+@cc
   Scenario: the user create a new contact with using proper data
     When  the user enters the following information
       | Name         | Mike Smith       |
